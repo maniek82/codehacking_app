@@ -44,11 +44,11 @@
           
             <div class="form-group">
               <div class="col-sm-2">
-                  {!!Form::label('status','Status:') !!} 
+                  {!!Form::label('is_active','Status:') !!} 
               </div>
             
             <div class="col-sm-11">
-               {!! Form::select('status',array(1=>'Active',0=>'Not Active'),0,['class'=>'form-control']) !!}
+               {!! Form::select('is_active',array(1=>'Active',0=>'Not Active'),0,['class'=>'form-control']) !!}
             </div>
           
           </div>
@@ -63,7 +63,18 @@
             </div>
           
           </div>
-         
+          
+           <div class="form-group">
+              <div class="col-sm-2">
+                  {!!Form::label('file','Photo:') !!} 
+              </div>
+            
+            <div class="col-sm-11">
+              {!! Form::file('file') !!}
+            </div>
+          
+          </div>
+          
           
           <div class="form-group">
                <div class="col-sm-10">
