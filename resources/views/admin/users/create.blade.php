@@ -66,11 +66,11 @@
           
            <div class="form-group">
               <div class="col-sm-2">
-                  {!!Form::label('file','Photo:') !!} 
+                  {!!Form::label('photo_id','Photo:') !!} 
               </div>
             
             <div class="col-sm-11">
-              {!! Form::file('file') !!}
+              {!! Form::file('photo_id') !!}
             </div>
           
           </div>
