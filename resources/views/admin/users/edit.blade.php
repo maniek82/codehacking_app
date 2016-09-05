@@ -83,14 +83,28 @@
               
               
               <div class="form-group">
-                   <div class="col-sm-10">
+                   <div class="col-sm-6">
                        {!! Form::submit('Update User',['class'=>'btn btn-info']) !!}
                    </div>
               </div>
     
            {!! Form::close()!!}
-     </div>
-     
+           
+           
+           {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy',$user->id]])!!}
+    
+                {{csrf_field()}}
+                   <div class="form-group">
+                         <div class="col-sm-">      
+                     {!! Form::submit('Delete User',['class'=>'btn btn-danger ']) !!}
+                           </div>  
+                 </div>
+ 
+         
+               {!! Form::close()!!}
+          
+        </div>
+          
+                 
       
-       
 @endsection

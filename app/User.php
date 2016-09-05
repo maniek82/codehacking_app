@@ -24,16 +24,35 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+    //relationship
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
+    
+    
     public function role() {
         return $this->belongsTo('App\Role');
     }
+    
     
     public function photo() {
         return $this->belongsTo('App\Photo');
     }
     
+    
     //accessor
     public function getNameAttribute($value) {
-        return strtoupper($value);
+        return ucfirst($value);
     }
+    
+    //check if user is admin
+    public function isAdmin() {
+        if($this->role->name =="administrator" && $this->is_active ==1) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
 }

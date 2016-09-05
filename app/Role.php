@@ -9,7 +9,5 @@ class Role extends Model
     protected $fillable = ['name'];
     
     
-    public function getNameAttribute($value) {
-        return ucfirst($value);
-    }
+  
 }
