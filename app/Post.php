@@ -22,4 +22,10 @@ class Post extends Model
    public function category() {
       return $this->belongsTo('App\Category');
   } 
+  //accessor
+    // public function getBodyAttribute($value) {
+     
+    //     return trim(substr($value, 0, 40))."...";
+    // }
+
 }
