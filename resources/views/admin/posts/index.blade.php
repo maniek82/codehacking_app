@@ -14,6 +14,7 @@
         <th>Body</th>
         <th>Created</th>
         <th>Updated</th>
+        <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -25,9 +26,14 @@
         <td>{{ $post->user->name }}</td>
         <td>{{ $post->category ? $post->category->name : 'Uncategorized' }}</td>
          <td>{{ $post->title}}</td>
-         <td>{{ trim(substr($post->body, 0, 31))."..."}}</td>
+         <td>{{ str_limit($post->body, 20) }}</td>
         <td>{{ $post->created_at->diffForHumans()}}</td>
         <td>{{ $post->updated_at->diffForHumans()}}</td>
+        <td>
+            <a style="display:block"class="btn btn-warning btn-xs" href="{{ route('admin.posts.edit',$post->id) }}">Edit</a>
+            <a style="margin-top:15px;display:block"class="btn btn-danger btn-xs" href="{{ route('admin.posts.edit',$post->id) }}">Delete</a>
+        </td>
+     
       </tr>
       @endforeach
     @endif 

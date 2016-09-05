@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Role;
 use App\Photo;
+use App\Category;
 use Carbon\Carbon;
 class AdminUsersController extends Controller
 {
@@ -137,11 +138,11 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-       User::findOrFail($id);
+       $user =User::findOrFail($id);
        //usuwanie zdjecia razem z userem
        //nie trzeba podawac folderu bo idzie on z accessora
-       unlink(public_path().$user->photo->file);
-       $user->delete();
+     unlink(public_path().$user->photo->file);
+      $user->delete();
        Session::flash('deleted_user', 'The user has been deleted');
        return redirect('/admin/users');
     }

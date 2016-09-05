@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->timestamps();
+            //user id from posts table to user id in user tabl
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

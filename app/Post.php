@@ -26,6 +26,7 @@ class Post extends Model
     // public function getBodyAttribute($value) {
      
     //     return trim(substr($value, 0, 40))."...";
+            //return str_limit($value, 10);//laravel function
     // }
 
 }
