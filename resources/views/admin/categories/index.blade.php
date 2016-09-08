@@ -1,6 +1,18 @@
 @extends('layouts.admin')
 
-
+@section('styles')
+<style>
+    .block {
+        display:block;
+        margin-top:10px;
+        padding:2px 12px;
+        
+    }
+    .edit {
+        padding: 1px 19px;
+    }
+</style>
+@stop
 @section('content')
 
 <h1 style="margin-bottom:50px;">Categories</h1>
@@ -43,9 +55,11 @@
         <td>{{ $category->created_at ? $category->created_at->diffForHumans() :'No date entered'}}</td>
         <td>{{ $category->updated_at ? $category->updated_at->diffForHumans() : 'No date entered'}}</td>
         <td>
-            <a style="display:block"class="btn btn-warning btn-xs" href="{{ route('admin.categories.edit',$category->id) }}">Edit</a>
-            <a style="margin-top:15px;display:block"class="btn btn-danger btn-xs" href="{{ route('admin.categories.edit',$category->id) }}">Delete</a>
-        </td>
+            <a class="btn btn-warning btn-xs edit" href="{{ route('admin.categories.edit',$category->id) }}">Edit</a>
+            
+            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminCategoriesController@destroy',$category->id]])!!}
+              {!! Form::submit('Delete',['class'=>'btn btn-xs btn-danger block']) !!}
+              {!! Form::close()!!}
      
       </tr>
       @endforeach

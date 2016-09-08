@@ -1,4 +1,16 @@
 #admin-page {
   padding-top: 0px; }
 
+#nested-comment {
+  margin-top: 20px; }
+
+.stopka {
+  background: black;
+  color: white;
+  height: 90px;
+  margin-bottom: 0px; }
+
+.comment-reply {
+  display: none; }
+
 /*# sourceMappingURL=app.css.map */

@@ -19,12 +19,13 @@
         @foreach($photos as $photo)
       <tr>
         <td>{{ $photo->id }}</td>
-        <td><img src="{{ $photo->file }}" alt=""></td>
+        <td><img height="50"src="{{ $photo->file }}" alt=""></td>
      
         <td>{{ $photo->created_at ? $photo->created_at->diffForHumans() :'No date'}}</td>
         <td>
-            <a style="display:block"class="btn btn-warning btn-xs" href="{{ route('admin.categories.edit',$photo->id) }}">Edit</a>
-           
+             {!! Form::open(['method'=>'DELETE', 'action'=>['AdminMediaController@destroy',$photo->id]])!!}
+              {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
+              {!! Form::close()!!}
         </td>
      
       </tr>

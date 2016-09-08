@@ -17,6 +17,7 @@
         <th>Status</th>
         <th>Created</th>
         <th>Updated</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +28,7 @@
         <!--<td><img height="50"src="/images/{{$user->photo ? $user->photo->file : 'No user photo'}}"></td>--> 
         <!--z photo class accessor funckcji mozemy zrobic to bardziej dynamiczne-->
          <td><img height="50"src="{{$user->photo ? $user->photo->file : 'http://placehold.it/50x50'}}"></td>
-        <td>{{$user->name}} <a class="btn btn-warning btn-xs" href="{{ route('admin.users.edit',$user->id) }}">Edit</a></td>
+       <td>{{$user->name}} </td>
         <td>{{$user->email}}</td>
         <td>{{$user->role->name}}</td>
         <td>
@@ -35,6 +36,7 @@
         </td>
         <td>{{$user->created_at->diffForHumans()}}</td>
         <td>{{$user->updated_at->diffForHumans()}}</td>
+        <td><a style="padding:2px 16px;"class="btn btn-warning btn-xs" href="{{ route('admin.users.edit',$user->id) }}">Edit</a></td>
       </tr>
       @endforeach
     @endif
